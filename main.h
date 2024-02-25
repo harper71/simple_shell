@@ -11,4 +11,4 @@
 #include <time.h>
 #include <sys/wait.h>
 
-#endif
+#endif/* MAIN_H */
