@@ -1,7 +1,3 @@
-The original Unix operating system was designed and implemented by Ken Thompson, Dennis Ritchie, and others at AT&T Bell Labs in the late 1960s and early 1970s. Ken Thompson wrote the initial version of Unix in assembly language for the PDP-7 minicomputer, and later, with the help of Dennis Ritchie, they rewrote Unix in the C programming language, which greatly contributed to its portability and popularity.
-
-The B programming language, which served as a precursor to the C programming language, was developed by Ken Thompson at Bell Labs in the early 1970s. B was itself influenced by the BCPL (Basic Combined Programming Language) programming language, which was created by Martin Richards. Ken Thompson and Dennis Ritchie later developed C as a successor to B, incorporating additional features and improvements.
-
 A shell is a command-line interface (CLI) that allows users to interact with the operating system (OS) by typing commands. Here's how a typical shell works:
 
 1. **Command Input**: Users type commands into the shell. These commands can be simple tasks like listing files in a directory or complex operations like compiling a program.
@@ -197,37 +193,6 @@ Here are some common system calls in C for Unix-like systems:
 This is not an exhaustive list, but it covers many of the commonly used system calls in Unix-like operating systems. The specific system calls available may vary depending on the operating system and its version. Refer to the documentation or manual pages (`man` pages) of your operating system for more details on system calls available on your system.
 
 
-
-In C, you can create new processes using the `fork()` system call. Here's a basic example of how to create a child process using `fork()`:
-
-```c
-#include <stdio.h>
-#include <unistd.h>
-
-int main() {
-    // Fork a new process
-    pid_t pid = fork();
-
-    // Check if fork was successful
-    if (pid < 0) {
-        // Error handling if fork failed
-        perror("fork");
-        return 1;
-    } else if (pid == 0) {
-        // Child process
-        printf("Child process created!\n");
-        // Additional code specific to child process
-    } else {
-        // Parent process
-        printf("Parent process. Child PID: %d\n", pid);
-        // Additional code specific to parent process
-    }
-
-    return 0;
-}
-```
-
-
 In C, the `main()` function is the entry point for a C program. The `main()` function can have three different prototypes, depending on how command-line arguments are handled:
 
 1. **No arguments**:
@@ -341,45 +306,3 @@ int main() {
 
 
 The `execve()` system call is used to execute a new program within the current process. It replaces the current process image with a new one specified by the path to the executable file. Here's a basic example of how to use `execve()`:
-
-```c
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-
-int main() {
-    pid_t pid = fork(); // Fork a new process
-
-    if (pid == -1) {
-        perror("fork");
-        return 1;
-    } else if (pid == 0) {
-        // Child process
-        char *argv[] = {"/bin/ls", "-l", "/", NULL}; // Command to execute
-        char *envp[] = {NULL}; // Environment variables (empty for simplicity)
-
-        if (execve(argv[0], argv, envp) == -1) {
-            perror("execve");
-            return 1;
-        }
-    } else {
-        // Parent process
-        wait(NULL); // Wait for the child process to finish
-    }
-
-    return 0;
-}
-```
-
-In this example:
-
-- We first fork a new process using the `fork()` system call.
-- In the child process (`pid == 0`), we specify the path to the executable file we want to execute (`/bin/ls` in this case) and any arguments to pass to the program (`-l /` in this case). We also set `envp` to `NULL` to indicate an empty environment (i.e., inherit the environment of the parent process).
-- We use `execve()` to replace the current process image with the new program specified by `argv[0]`. The `argv` array contains the command-line arguments for the program, and `envp` contains environment variables (which we set to `NULL` for simplicity).
-- If `execve()` fails, we print an error message using `perror()` and return an error code.
-- In the parent process, we use `wait()` to wait for the child process to finish executing before continuing.
-
-This example demonstrates how to use the `execve()` system call to execute another program within a C program. You can replace `/bin/ls` and its arguments with the path to any executable program and its arguments as needed.
-
-
