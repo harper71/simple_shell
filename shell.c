@@ -1,12 +1,10 @@
 #include "main.h"
 /**
  * main - used to create a command shell enviroment
- * @ac: argument count
- * @argv: arguments
+ * @av: arguments
  *
- * Return: 0 always
  */
-int main(int ac, char *argv[])
+void shell_1(char *av[])
 {
 	char *prompt = NULL;
 
@@ -38,7 +36,7 @@ int main(int ac, char *argv[])
 
 			if (var == -1)
 			{
-				printf("%s: no such directory\n", argv[0]);
+				printf("%s: no such directory\n", av[0]);
 			}
 			break;
 		}
@@ -48,7 +46,5 @@ int main(int ac, char *argv[])
 		}
 		printf("$ ");
 	}
-	(void)ac;
 	free(prompt);
-	return (0);
 }

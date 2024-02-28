@@ -11,4 +11,6 @@
 #include <time.h>
 #include <sys/wait.h>
 
+void shell_2(char *av[]);
+void shell_1(char *av[]);
 #endif/* MAIN_H */

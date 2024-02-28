@@ -1,12 +1,10 @@
 #include "main.h"
 /**
  * main - used to create a command shell enviroment
- * @ac: argument count
  * @av: arguments
  *
- * Return: 0 always
  */
-int main(int ac, char *av[])
+void shell_2(char *av[])
 {
 	char *prompt = NULL, *str_cpy = NULL;
 
@@ -84,8 +82,6 @@ int main(int ac, char *av[])
 		free(argv);
 		free(str_cpy);
 	}
-	(void)ac;
 	free(prompt);
-	return (0);
 }
 
