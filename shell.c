@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * main - used to create a command shell enviroment
+ * shell_1 - used to create a command shell enviroment
  * @av: arguments
  *
  */
