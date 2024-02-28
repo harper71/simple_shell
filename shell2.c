@@ -18,7 +18,7 @@ void shell_2(char *av[])
 
 	pid_t pid;
 
-	printf("$ ");
+	write(1, "$ ", 2);
 	while (getline(&prompt, &lenVar, stdin) != EOF)
 	{
 		len_prompt = strlen(prompt);
@@ -70,7 +70,7 @@ void shell_2(char *av[])
 
 			if (var == -1)
 			{
-				printf("%s: no such directory\n", av[0]);
+				dprintf(STDOUT_FILENO, "%s: no such directory\n", av[0]);
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -78,7 +78,7 @@ void shell_2(char *av[])
 		{
 			wait(NULL);
 		}
-		printf("$ ");
+		write(1, "$ ", 2);
 		free(argv);
 		free(str_cpy);
 	}
