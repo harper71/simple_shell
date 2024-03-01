@@ -2,9 +2,10 @@
 /**
  * execute_command - to execute the commands
  * @args: takes in the arguments
+ * @project_name: the name of the file.
  * Return: 0
  */
-int execute_command(char **args)
+int execute_command(char **args, char *project_name)
 {
 	pid_t pid = fork();
 
@@ -17,7 +18,7 @@ int execute_command(char **args)
 	{
 		if (execve(args[0], args, NULL) == -1)
 		{
-			dprintf(STDERR_FILENO, "%s: command not found\n", args[0]);
+			_printf("%s: No such file or directory\n", project_name);
 			exit(1);
 		}
 	}

@@ -1,31 +1,30 @@
 #include "main.h"
 /**
- * main - shell implementation of task 1
+ * main - shell implementation of task
+ * @argc: argument count
+ *
+ * @argv: argument vector
+ *
  * Return: 0 always
  */
-int main(void)
+int main(int argc, char *argv[])
 {
-	char *command_line, **args;
+	char *prompt;
 
-	int result;
+	argc = 0;
 
 	while (1)
 	{
 		print_prompt();
 
-		command_line = get_command();
+		prompt = get_command();
 
-		args = parse_args(command_line);
-
-		result = execute_command(args);
-
-		if (result == -1)
+		if (prompt == NULL)
 		{
 			break;
 		}
-
-		free(command_line);
-		free(args);
+		run_command_1(prompt, argv[argc]);
+		free(prompt);
 	}
 	return (0);
 }
