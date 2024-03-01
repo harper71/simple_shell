@@ -24,7 +24,6 @@ void run_command_1(char *cmd, char *program_name)
 
 		if (execve(args[0], args, NULL) == -1)
 		{
-			_printf("%s: No such file or directory\n", program_name);
 			exit(1);
 		}
 	}

@@ -15,7 +15,7 @@
 
 #define BUFFER_SIZE 1024
 
-void print_prompt(void);
+/*void print_prompt(void);*/
 char *get_command();
 char **parse_args(char *line);
 int is_empty_line(char *line);

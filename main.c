@@ -15,8 +15,6 @@ int main(int argc, char *argv[])
 
 	while (1)
 	{
-		print_prompt();
-
 		prompt = get_command();
 
 		if (prompt == NULL)
