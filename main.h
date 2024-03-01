@@ -11,6 +11,14 @@
 #include <time.h>
 #include <sys/wait.h>
 
-void shell_2(char *av[]);
-void shell_1(char *av[]);
+
+
+#define BUFFER_SIZE 1024
+
+void print_prompt(void);
+char *get_command();
+char **parse_args(char *line);
+int is_empty_line(char *line);
+int execute_command(char **args);
+
 #endif/* MAIN_H */

@@ -1,0 +1,38 @@
+#include "main.h"
+/**
+ * execute_command - used to execute commands
+ * @argv: tokens
+ */
+void execute_command(char *command_line)
+{
+	char **arguments = tokenize_input(command_line);
+
+	char *command = arguments[0];
+
+	char *full_path = search_path(command);
+
+	pid_t pid = fork();
+	if (full_path == NULL)
+	{
+		printf("%s: command not found\n", command);
+		free(arguments);
+		return;
+	}
+	if (pid == -1)
+	{
+		perror("fork");
+		exit(EXIT_FAILURE);
+	}
+	else if (pid == 0)
+	{
+		execve(full_path, arguments, NULL);
+		perror("execve");
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		wait(NULL);
+	}
+
+}
+
