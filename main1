@@ -3,7 +3,7 @@
  * main - shell implementation of task 1
  * Return: 0 always
  */
-int main(int argc, char *argv[])
+int main(void)
 {
 	char *command_line, **args;
 
