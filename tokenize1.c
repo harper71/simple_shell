@@ -7,6 +7,7 @@
 char **parse_args(char *line)
 {
 	char **args;
+
 	char *token, *delm = " ";
 
 	int i = 0;
@@ -20,9 +21,10 @@ char **parse_args(char *line)
 		free(args);
 		exit(EXIT_FAILURE);
 	}
-	while(token != NULL)
+	while (token != NULL)
 	{
 		args[i++] = token;
+
 		token = strtok(NULL, delm);
 	}
 	args[i] = NULL;

@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * get_command - print the prompt sign
- * @prompt: receive prompt from user
+ * Return: prompt
  */
 char *get_command()
 {

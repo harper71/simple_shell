@@ -1,13 +1,13 @@
 #include "main.h"
 /**
  * execute_command - to execute the commands
- * @args - takes in the arguments
+ * @args: takes in the arguments
  * Return: 0
  */
 int execute_command(char **args)
 {
 	pid_t pid = fork();
-	
+
 	if (pid == -1)
 	{
 		perror("fork");
