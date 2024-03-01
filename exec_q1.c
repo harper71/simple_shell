@@ -5,7 +5,7 @@
  * @program_name: program_name
  * Return: 0
  */
-void run_command_1(char *cmd, char *program_name)
+void run_command_1(char *cmd)
 {
 	char *args[2];
 

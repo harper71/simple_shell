@@ -7,11 +7,9 @@
  *
  * Return: 0 always
  */
-int main(int argc, char *argv[])
+int main(void)
 {
 	char *prompt;
-
-	argc = 0;
 
 	while (1)
 	{
@@ -21,7 +19,7 @@ int main(int argc, char *argv[])
 		{
 			break;
 		}
-		run_command_1(prompt, argv[argc]);
+		run_command_1(prompt);
 		free(prompt);
 	}
 	return (0);

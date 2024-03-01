@@ -22,5 +22,5 @@ int is_empty_line(char *line);
 int execute_command(char **args, char *project_name);
 int _printf(const char *format, ...);
 void tokenize_command(char *prompt, char **cmd);
-void run_command_1(char *cmd, char *program_name);
+void run_command_1(char *cmd);
 #endif/* MAIN_H */
