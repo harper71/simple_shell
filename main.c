@@ -1,10 +1,6 @@
 #include "main.h"
 /**
  * main - shell implementation of task
- * @argc: argument count
- *
- * @argv: argument vector
- *
  * Return: 0 always
  */
 int main(void)
@@ -20,6 +16,10 @@ int main(void)
 			break;
 		}
 		run_command_1(prompt);
+		if (strcmp(prompt, "exit") == 0)
+		{
+			break;
+		}
 		free(prompt);
 	}
 	return (0);

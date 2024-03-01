@@ -2,7 +2,6 @@
 /**
  * run_command_1 - to execute the commands
  * @cmd: takes in the arguments
- * @program_name: program_name
  * Return: 0
  */
 void run_command_1(char *cmd)

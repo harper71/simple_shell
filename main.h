@@ -19,7 +19,7 @@
 char *get_command();
 char **parse_args(char *line);
 int is_empty_line(char *line);
-int execute_command(char **args, char *project_name);
+int execute_command(char **args);
 int _printf(const char *format, ...);
 void tokenize_command(char *prompt, char **cmd);
 void run_command_1(char *cmd);
