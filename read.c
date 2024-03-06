@@ -11,8 +11,15 @@ char *get_command()
 
 	if (getline(&prompt, &lenVar, stdin) == -1)
 	{
-		free(prompt);
-		exit(EXIT_SUCCESS);
+		if (EOF)
+		{
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			perror("getline");
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	prompt[strcspn(prompt, "\n")] = '\0';

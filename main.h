@@ -12,15 +12,16 @@
 #include <sys/wait.h>
 #include <stdarg.h>
 
+extern char **environ;
 
-#define BUFFER_SIZE 1024
-
-/*void print_prompt(void);*/
-char *get_command();
+void print_environment();
+void prompt(void);
 char **parse_args(char *line);
+int parse_command(char *command);
 int is_empty_line(char *line);
-int execute_command(char **args);
+char *get_command();
+void execute_command(char **command_line);
 int _printf(const char *format, ...);
-void tokenize_command(char *prompt, char **cmd);
-void run_command_1(char *cmd);
-#endif/* MAIN_H */
+void execute_with_custom_env(void);
+void execute_command_if_found(char **args);
+#endif
