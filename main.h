@@ -14,7 +14,7 @@
 
 extern char **environ;
 
-void print_environment();
+void print_environment(void);
 void prompt(void);
 char **parse_args(char *line);
 int parse_command(char *command);

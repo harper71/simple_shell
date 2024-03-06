@@ -4,7 +4,7 @@
  * @av: arguments
  *
  */
-int main()
+int main(void)
 {
 	char *prompt = NULL, *str_cpy = NULL;
 

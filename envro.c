@@ -8,9 +8,8 @@ void execute_with_custom_env(void)
 
 	char **env;
 
-	extern char **environ;
-
 	argv[0] = "/usr/bin/env";
+
 	argv[1] = NULL;
 
 	for (env = environ; *env != NULL; env++)
