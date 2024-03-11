@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * execute_command - to execute the commands
- * @args: takes in the arguments
+ * @argv: program name
+ * @command_line: command parsed
  */
 void execute_command(char **command_line, char **argv)
 {

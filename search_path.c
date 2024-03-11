@@ -2,6 +2,7 @@
 /**
  * search_path - search for the path
  * @command: command to pass to path
+ * @argv: program name
  * Return: NULL
  */
 char *search_path(char *command, char *argv[])
